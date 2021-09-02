@@ -3,22 +3,55 @@ import './ExpenseForm.css'
 
 function ExpenseForm() {
 
-    const [enteredTitle , setEnteredTitle] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('');
-    const [eneteredDate, setEnteredDate] = useState('');
+    // Multiple use of States
+    // const [enteredTitle , setEnteredTitle] = useState('');
+    // const [enteredAmount, setEnteredAmount] = useState('');
+    // const [eneteredDate, setEnteredDate] = useState('');
+
+    // Using one state
+   const [userInput, setUserInput] useState({
+        enteredTitle: '',
+        enteredAmount: '',
+        eneteredDate:'',
+    })
 
     const titleChangeHandler = (event) => {
-        setEnteredTitle(event.target.value);
+        // when use Multiple useState
+        // setEnteredTitle(event.target.value);
+
+        // when use single useState function for all inputs
+        setUserInput({
+            // use of spread operator
+            ...userInput,
+            enteredTitle: event.target.value,
+        })
+
         console.log(event.target.value);
     }
 
     const amountChangeHandler = (event) => {
-        setEnteredAmount(event.target.value);
+        // when use Multiple useState
+        // setEnteredAmount(event.target.value);
+
+        // when use single useState function for all inputs
+        setUserInput({
+            // use of spread operator
+            ...userInput,
+            enteredAmount: event.target.value,
+        })
         console.log(event.target.value);
     }
 
     const dateChangeHandler = (event) =>{
-        setEnteredDate(event.target.value);
+        // when use Multiple useState
+        // setEnteredDate(event.target.value);
+
+        // when use single useState function for all inputs
+        setUserInput({
+            // use of spread operator
+            ...userInput,
+            eneteredDate: event.target.value,
+        })
         console.log(event.target.value);
     }
 
