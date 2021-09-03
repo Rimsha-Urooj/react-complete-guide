@@ -11,6 +11,7 @@ function NewExpense(props) {
             id: Math.random().toString()
         };
        
+        // lifting the state up as passing the data from child to parent component
         props.onAddExpense(expenseData);
     }
 
