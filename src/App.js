@@ -31,10 +31,17 @@ function App() {
       date : new Date(2021, 5, 27),
     },
   ]
-
+  
+  // for bottom to up communication
+  const addExpenseHandler = (expense) => {
+    console.log("in App.js");
+    console.log(expenses);
+    console.log("data from child");
+    console.log(expense);
+  }
   return (
     <div className="App">
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       
      <Expenses items={expenses} />
     </div>

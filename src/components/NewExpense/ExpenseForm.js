@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css'
 
-function ExpenseForm() {
+function ExpenseForm(props) {
 
     // Multiple use of States
     const [enteredTitle , setEnteredTitle] = useState('');
@@ -43,7 +43,6 @@ function ExpenseForm() {
         //     ...userInput,
         //     enteredAmount: event.target.value,
         // })
-        console.log(event.target.value);
     }
 
     const dateChangeHandler = (event) =>{
@@ -56,7 +55,6 @@ function ExpenseForm() {
         //     ...userInput,
         //     eneteredDate: event.target.value,
         // })
-        console.log(event.target.value);
     }
 
     const submitHandler = (event) => {
@@ -67,8 +65,9 @@ function ExpenseForm() {
             amount: enteredAmount,
             date: new Date(eneteredDate),
         }
-
-        console.log(expenseData);
+        
+        // pasing data to parent component i.e., botton up commuincation
+        props.onSaveExpenseData(expenseData);
 
         // Two way bindings
         setEnteredTitle('');
